@@ -1,0 +1,39 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - model: gat
+  - data: cora
+  - training: default
+  - evaluation: node_classification
+
+# Experiment configuration
+experiment:
+  name: "gat_experiment"
+  tags: ["gat", "node_classification", "attention"]
+  notes: "Graph Attention Networks for node classification"
+
+# Device configuration
+device: auto  # auto, cuda, mps, cpu
+seed: 42
+
+# Logging
+logging:
+  use_wandb: true
+  use_tensorboard: true
+  log_dir: "logs"
+  project_name: "graph-attention-networks"
+
+# Paths
+paths:
+  data_dir: "data"
+  checkpoint_dir: "checkpoints"
+  output_dir: "outputs"
+  assets_dir: "assets"
+
+# Visualization
+visualization:
+  save_plots: true
+  plot_format: "png"
+  dpi: 300
+  style: "seaborn-v0_8"

@@ -1,0 +1,31 @@
+# @package model
+
+_target_: src.models.gat.GAT
+
+# Model architecture
+in_channels: null  # Will be set from dataset
+hidden_channels: 64
+out_channels: null  # Will be set from dataset
+num_layers: 2
+heads: 8
+dropout: 0.6
+alpha: 0.2  # LeakyReLU negative slope
+bias: true
+concat: true
+add_self_loops: true
+edge_dim: null
+fill_value: "mean"
+flow: "source_to_target"
+node_dim: 0
+share_weights: false
+
+# Attention mechanism
+attention_type: "standard"  # standard, sparse, dynamic
+attention_dropout: 0.6
+attention_activation: "elu"
+final_activation: "log_softmax"
+
+# Regularization
+use_layer_norm: false
+use_batch_norm: false
+residual_connections: false
